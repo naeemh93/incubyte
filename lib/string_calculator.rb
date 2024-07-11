@@ -3,7 +3,12 @@ class StringCalculator
     return 0 if numbers.empty?
     delimiter, numbers = fetch_delimiter(numbers)
 
-    numbers.split(delimiter).map(&:to_i).sum
+    number_list = numbers.split(delimiter).map(&:to_i)
+
+    negative_numbers = number_list.select { |n| n < 0 }
+    raise "negative numbers not allowed: #{negative_numbers.join(', ')}" unless negative_numbers.empty?
+
+    number_list.sum
   end
 
   private
