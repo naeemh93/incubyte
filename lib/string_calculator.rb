@@ -8,7 +8,7 @@ class StringCalculator
     negative_numbers = number_list.select { |n| n < 0 }
     raise "negative numbers not allowed: #{negative_numbers.join(', ')}" unless negative_numbers.empty?
 
-    number_list.sum
+    number_list.reject { |n| n > 1000 }.sum
   end
 
   private

@@ -48,5 +48,11 @@ RSpec.describe StringCalculator do
       end
     end
 
+    context 'when input has custom delimiter and numbers greater than 1000' do
+      it 'returns the sum ignoring numbers greater than 1000' do
+        expect(StringCalculator.add("//;\n2;2;1001")).to eq(4)
+      end
+    end
+
   end
 end
